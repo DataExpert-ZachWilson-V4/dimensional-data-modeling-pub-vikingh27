@@ -52,13 +52,8 @@ jobs:
           echo "Any changes: $any_submission_changes"
           echo "any_submission_changes=$any_submission_changes" >> $GITHUB_OUTPUT
 
-          before_sha="${{ github.event.pull_request.base.sha }}"  # "${{ github.event.before }}"
-          after_sha="${{ github.event.after }}"
-          if ! git rev-parse --verify "$before_sha" >/dev/null || ! git rev-parse --verify "$after_sha" >/dev/null || [ -z "${{ github.event.before }}" ] || [ -z "${{ github.event.after }}" ]; then
-            echo "One or both of the commit SHAs don't exist. Skipping git diff."
-            filter_changed_files_push=()
-          else
-            changed_files_push="$(git diff --name-only $before_sha $after_sha)"
+          if [ "${{ github.event_name }}" == "pull_request_target" ]; then
+            changed_files_push="$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})"
             filter_changed_files_push=()
             for file in $changed_files_push; do
               if [[ " $all_changed_submission_files " =~ " $file " ]]; then
@@ -66,6 +61,8 @@ jobs:
                 filter_changed_files_push+=( "$file" )
               fi
             done
+          else 
+            filter_changed_files_push=()
           fi
           
           changed_submission_files_push=$(echo "${filter_changed_files_push[@]}" | xargs)
