@@ -9,7 +9,7 @@ CREATE OR REPLACE TABLE vpsjul8468082.actors (
       film VARCHAR, -- 'film': Name of the film, part of the actor_films dataset.
       votes INTEGER, -- 'votes': Number of votes the film received, from the actor_films dataset.
       rating DOUBLE, -- 'rating': Rating of the film, from the actor_films dataset.
-      film_id VARCHAR, -- 'film_id': Unique identifier for each film, part of the primary key in the actor_films dataset.
+      film_id VARCHAR -- 'film_id': Unique identifier for each film, part of the primary key in the actor_films dataset.
     )
   ), -- 'films': Array of ROWs for multiple films associated with each actor. Each ROW contains film details.
   quality_class VARCHAR, -- 'quality_class': Categorical rating based on the average rating in the most recent year.
