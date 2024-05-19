@@ -3,6 +3,8 @@
 -- The query generates rows for changes, keeping track of start and end dates, and creates new rows for the current year if changes are detected.
 -- The result is inserted into the actors_history_scd table.
 
+
+
 INSERT INTO vpsjul8468082.actors_history_scd
 -- Get last year's SCD records
 WITH last_year_scd AS (
