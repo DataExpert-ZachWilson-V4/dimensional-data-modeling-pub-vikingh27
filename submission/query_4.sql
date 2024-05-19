@@ -2,6 +2,7 @@
 -- It uses a Type 2 Slowly Changing Dimension (SCD) approach to track changes in actors' quality_class and active status over time.
 -- The query identifies changes in status, computes streaks of consecutive years with the same status, and records the start and end dates for each streak.
 
+
 INSERT INTO vpsjul8468082.actors_history_scd
 -- Get is_active and quality_class from the previous year using LAG for a given actor
 WITH lagged AS (
