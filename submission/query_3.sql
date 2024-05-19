@@ -3,6 +3,7 @@
 -- It stores information about actors, their quality classification, active status, and the period each state is valid for.
 -- The table is partitioned by the current year and stored in PARQUET format for efficient querying and storage.
 
+
 CREATE OR REPLACE TABLE vpsjul8468082.actors_history_scd (
   actor VARCHAR, -- 'actor': Stores the actor's name. Part of the actor_films dataset.
   quality_class VARCHAR, -- 'quality_class': Categorical rating based on average rating in the most recent year.
