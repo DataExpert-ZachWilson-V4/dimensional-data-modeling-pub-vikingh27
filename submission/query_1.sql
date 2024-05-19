@@ -1,6 +1,5 @@
 -- Creating the 'actors' table with detailed column descriptions to increase understanding of schema
 
-
 CREATE OR REPLACE TABLE vpsjul8468082.actors (
   actor VARCHAR, -- 'actor': Stores the actor's name. Part of the actor_films dataset.
   actor_id VARCHAR, -- 'actor_id': Unique identifier for each actor, part of the primary key in the actor_films dataset.
