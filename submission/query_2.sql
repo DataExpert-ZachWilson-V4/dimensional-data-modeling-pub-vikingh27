@@ -2,6 +2,7 @@
 -- It merges actors' data from the previous year with the current year's data.
 -- The query combines film details, updates the quality class, and marks active actors based on the current year's film data.
 
+
 INSERT INTO vpsjul8468082.actors
 -- Actors from the last year
 WITH last_year AS (
